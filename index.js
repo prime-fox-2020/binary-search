@@ -16,24 +16,53 @@ function ownSort(arr) {
   return arr
 }
 
-function binarySearch (search, array) {
-  // Your searching code
-  return 0;
+/**
+
+PSEDOCODE
+
+Menentukan nilai index terendah dan tertinggi yang msih potensial
+
+Selama nilai index terendah dan tertinggi tidak overlapping maka masih ada indek berpotensial menyimpan nilai yg kita cari (while loop)
+  Langsung cek nilai pada index ditengah apakah sama dengan nilai yang dicari
+  jika nilai sama langsung kembalikan nilai atau indek (sesuaikan dengan kasus)
+  jika tidak sama bandinkan nilai pada index ditengah tadi dengan nilai yang dicari
+    jika nilai pada index ditengah lebih besar dari pada nilai yg dicari
+      maka eliminasi indek tengah dan semua index yg lebih besar dari index tengah (semua element yg berada di posisi sebelah kanan indek tengah)
+      index maksimal yg berpotensial adalah index tengah minus satu
+    jika nilai pada indek tengah lebih kecil daripada nilai yg dicari
+      maka eliminasi indek tengah dan semua index yg lebih kecil dari index tengah (semua element yg berada diposisi sebelah kiri index tengah)
+      index minimum yg berpotensial adalah index tengah plus satu
+dengan demikian maka jika tidak menemukan nilai yg dicari, nilai index minimum dan nilai index maksimum akan overlapping (keluar dari while loop)
+
+dan return nilai minus satu (-1)
+ */
+
+function binary_search (search, array) {
+  let min = 0,
+  max = array.length - 1,
+  mid;
+  while (min <= max) {
+    mid = Math.floor((min + max) / 2);
+    if (array[mid] === search) return mid;
+    if (array[mid] < search) {
+      min = mid + 1;
+    } else {
+      max = mid -1;
+    }
+  }
+  return -1;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
-console.log(arrayGenapSorted);
-console.log(arrayGanjilSorted);
-
 // Driver code
-// console.log(binary_search(8, arrayGenapSorted))
-// console.log(binary_search(10, arrayGenapSorted))
-// console.log(binary_search(33, arrayGenapSorted))
+console.log(binary_search(8, arrayGenapSorted))
+console.log(binary_search(10, arrayGenapSorted))
+console.log(binary_search(33, arrayGenapSorted))
 
-// console.log(binary_search(53, arrayGanjilSorted))
-// console.log(binary_search(3, arrayGanjilSorted))
-// console.log(binary_search(2, arrayGanjilSorted))
+console.log(binary_search(53, arrayGanjilSorted))
+console.log(binary_search(3, arrayGanjilSorted))
+console.log(binary_search(2, arrayGanjilSorted))
 
 // module.exports = binary_search
