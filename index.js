@@ -19,6 +19,28 @@ function ownSort(arr) {
   return arr
 }
 
+/* START PSEUDOCODE
+
+  START PROCEDURE of binarySearch
+    READ search AS INTEGER, array AS ARRAY OF INTEGER
+    SET startIndex AS 0, endIndex AS LENGTH OF array MINUS 1
+    
+    WHILE startIndex <= endIndex DO
+      SET middleIndex AS roundingDown((startIndex + endIndex) / 2)
+      IF (search IS EQUAL TO array[middleIndex]) THEN DO
+        RETURN middleIndex
+      ELSE IF (search < array[middleIndex]) THEN DO
+        endIndex = middleIndex - 1
+      ELSE IF (search > array[middleIndex]) THEN DO
+        startIndex = middleIndex + 1
+      END IF
+    END WHILE
+    
+    RETURN -1
+  END PROCEDURE
+
+END PSEUDOCODE */
+
 function binarySearch (search, array) {
   // Your searching code
   let startIndex = 0
@@ -33,7 +55,7 @@ function binarySearch (search, array) {
       startIndex = middleIndex + 1;
     }
   }
-  return -1
+  return -1 //search not found
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
