@@ -26,20 +26,18 @@ function binarySearch (search, array) {
   while(startIndex <= endIndex){
     let middleIndex = Math.floor((startIndex + endIndex) / 2)
     if(search === array[middleIndex]){
-      return true
+      return middleIndex
     }else if(search < array[middleIndex]){ //continue searching at the left slice of array
       endIndex = middleIndex - 1;
     }else if(search > array[middleIndex]){ //continue searching at the right slice of array
       startIndex = middleIndex + 1;
     }
   }
-  return false
+  return -1
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
-console.log(arrayGenapSorted)
-console.log(arrayGanjilSorted)
 
 // Driver code
 console.log(binarySearch(8, arrayGenapSorted))
