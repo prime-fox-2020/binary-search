@@ -59,10 +59,10 @@ BEGIN
 function binary_search(search, array) {
   // Your searching code
   var angkaAwal = 0
-  var angkaAkhir = array.length - 1
+  var angkaAkhir = array.length
 
   while (angkaAwal <= angkaAkhir) {
-    let mid = Math.floor((angkaAwal + angkaAkhir) / 2)
+    var mid = Math.floor((angkaAwal + angkaAkhir) / 2)
     if (search == array[mid]) {
       return mid
     }
