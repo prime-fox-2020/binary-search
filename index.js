@@ -12,6 +12,7 @@ function ownSort(arr) {
         var temp = arr[j];
         arr[j] = arr[idx];
         arr[idx] = temp;
+        idx = j;
       } else {
         idx = j;
       }
@@ -20,9 +21,24 @@ function ownSort(arr) {
   return arr
 }
 
-function binarySearch (search, array) {
-  
-  return 0;
+function binary_search (search, array) {
+  var firstIndex = 0;
+  var lastIndex = array.length-1;
+  var mid;
+  while (array[mid] != search) {
+    mid = Math.floor((lastIndex + firstIndex) / 2);
+    if (array[mid] === search) {
+      return mid;
+    } else if (array[mid] > search) {
+      lastIndex = mid - 1;
+    } else if (array[mid] < search) {
+      firstIndex = mid + 1;
+    }
+    if (lastIndex < firstIndex) {
+      break;
+    }
+  }
+  return -1;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
