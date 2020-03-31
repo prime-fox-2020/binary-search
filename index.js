@@ -28,14 +28,14 @@ function binary_search (search, arr, left, right) {
     let mid = Math.floor((left + right) / 2)
 
     if (arr[mid] === search)
-      return mid;
+      return mid
 
     if (arr[mid] > search)
       return binary_search(search, arr, left, mid - 1)
 
     return binary_search(search, arr, mid + 1, right)
   }
-  return -1;
+  return -1
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
