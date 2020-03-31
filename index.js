@@ -27,19 +27,27 @@ function ownSort(arr) {
 
 function binary_search (search, array) {
   // Your searching code
+  var cek = false
+  for (let i = 0; i < array.length; i++) {
+      if(search==array[i]){
+          cek = true
+      }
+  }
+  if(!cek){
+      return -1
+  }
+
   var low = 0
   var high = array.length-1
   var mid;
   while(low <= high){
       mid = Math.floor((high+low)/2)
-      if(array[mid] == search){
+      if(array[mid] === search){
           return mid
       } else if ( array[mid] < search){
-          low = mid +1;
-      } else if(array[mid]> search){
-          high = mid -1;
-      }else{
-          return -1
+          low = mid+1;
+      } else{
+          high = mid-1;
       }
   }
 }
@@ -48,22 +56,16 @@ var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // Driver code
-console.log(binary_search(22,arrayGenapSorted)==4) // true
-console.log(binary_search(90,arrayGenapSorted)==8) // true
-console.log(binary_search(90,arrayGenapSorted)==5) // false
+console.log(binary_search(8, arrayGenapSorted))
+console.log(binary_search(10, arrayGenapSorted))
+console.log(binary_search(33, arrayGenapSorted))
 
+console.log(binary_search(53, arrayGanjilSorted))
+console.log(binary_search(3, arrayGanjilSorted))
+console.log(binary_search(2, arrayGanjilSorted))
 
-console.log(binary_search(53,arrayGanjilSorted)===4) // true
-console.log(binary_search(3,arrayGanjilSorted)===0) // true
-console.log(binary_search(3,arrayGanjilSorted)===5) // false
+console.log(binary_search(90, arrayGenapSorted))
+console.log(binary_search(89, arrayGanjilSorted))
 
-
-// console.log(binary_search(8, arrayGenapSorted))
-// console.log(binary_search(10, arrayGenapSorted))
-// console.log(binary_search(33, arrayGenapSorted))
-
-// console.log(binary_search(53, arrayGanjilSorted))
-// console.log(binary_search(3, arrayGanjilSorted))
-// console.log(binary_search(2, arrayGanjilSorted))
 
 module.exports = binary_search
