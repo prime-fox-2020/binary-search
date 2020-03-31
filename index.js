@@ -14,7 +14,7 @@ function ownSort(arr) {
       }
     }
   }
-  console.log(arr);
+  // console.log(arr);
   
   return arr
 }
