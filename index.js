@@ -4,27 +4,18 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8];
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
 
 function ownSort(arr) {
-  for (let i = 0; i < arr.length; i++){
-    let indexOfMin = i;
-    let j = i; 
-    let min = arr[i];
+    for (let i = 1; i < arr.length; i++) {
+      let currArr = arr[i];
+      let j = i - 1;
 
-    
-    while (j < arr.length){
-        if (arr[j] < min){
-            min = arr[j];
-            indexOfMin = j;
-        }
-        j++;
-    }
+      while(j >= 0 && arr[j] > currArr){
+        arr[j + 1] = arr[j];
+        j--;
+      }
 
-    if (indexOfMin !== i){ 
-        let swap = arr[i];
-        arr[i] = arr[indexOfMin];
-        arr[indexOfMin] = swap;
+      arr[j + 1] = currArr;
     }
-}
-return arr;
+    return arr;
 }
 
 function binary_search (search, array, start = 0, end = array.length - 1) {
@@ -51,7 +42,7 @@ function binary_search (search, array, start = 0, end = array.length - 1) {
         return -1;
       }
     } else {
-      return 'Wrong odd / even number!';
+      return 'Wrong' + (array[0] % 2 === 0 ? ' Even ' : ' Odd ') + 'number!';
     }
 }
 
