@@ -4,13 +4,39 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
-  // Your sorting code
-  return arr
-}
+    var length = arr.length;
+    for (var i = 1; i < length; i++) {
+        var key = arr[i];
+        var j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+    return arr;
+};
 
-function binarySearch (search, array) {
-  // Your searching code
-  return 0;
+
+function binary_search(search, array) {
+    var awal = 0;
+    var akhir = array.length - 1;
+    var posisi = -1;
+    var found = false;
+    var tengah;
+ 
+    while (found === false && awal <= akhir) {
+        tengah = Math.floor((awal + akhir)/2);
+        if (array[tengah] == search) {
+            found = true;
+            posisi = tengah;
+        } else if (array[tengah] > search) {
+            akhir = tengah - 1;
+        } else {
+            awal = tengah + 1;
+        }
+    }
+    return posisi;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
