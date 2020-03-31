@@ -1,16 +1,30 @@
 'use strict'
-
 var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
   // Your sorting code
-  return arr
+  for (let i = 1; i < arr.length; i++) {
+    let temp = arr[i]; let compare = i - 1;   
+    while (compare >= 0 && temp < arr[compare]) {
+      compare -= 1
+      arr[compare + 1] = arr[compare]
+    } arr[compare+1] = temp
+  } return arr
 }
+// console.log(ownSort(testArrayGenap))
 
-function binarySearch (search, array) {
+function binary_search (search, array) {
   // Your searching code
-  return 0;
+  var min = 0;
+  var max = array.length-1
+  while (min <= max) {
+    let mid = Math.floor((max + min) / 2)
+    if (search == array[mid]) return mid;
+    else if (search < array[mid]) max = mid - 1;
+    else if (search > array[mid]) min = mid + 1;
+  }
+  return -1
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
