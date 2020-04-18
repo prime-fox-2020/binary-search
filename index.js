@@ -21,6 +21,25 @@ function ownSort(arr) {
 }
 
 
+/*  
+CREATE binary_search FUNCTION WITH 2 PARAMATERS NAMED search AND array
+SET  bottom to zero
+SET top to  length of array minus 1
+WHILE botttom SMALLER THAN OR EQUALS TO top THEN
+SET mid to MATH.floor WITH THE VALUE OF top PLUS bottom DIVIDED BY 2 EMBEDED INSIDE IT
+IF search EQUALS TO array[mid] THEN
+RETURN mid
+ENDIF
+ELSE IF search GREATER THAN array[mid] THEN
+REASSIGN bottom to mid PLUS 1
+END ELSE IF
+ELSE IF search SMALLER THAN array[mid] THEN
+REASSIGN top to mid minus 1
+END ELSE IF
+END WHILE
+return -1
+*/
+
 function binary_search(search, array) {
   // Your searching code
   let bottom = 0;
